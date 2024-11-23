@@ -1,14 +1,19 @@
-[gd_scene load_steps=8 format=4 uid="uid://dhl0fm636jmbb"]
+[gd_scene load_steps=10 format=4 uid="uid://dhl0fm636jmbb"]
 
 [ext_resource type="PackedScene" uid="uid://c4dk1whw767h6" path="res://scenes/player/player.tscn" id="1_ddn3p"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_if5dn"]
 [ext_resource type="PackedScene" uid="uid://c8aqv517bcp8q" path="res://scenes/managers/upgrade_manager/upgrade_manager.tscn" id="1_lmcf3"]
 [ext_resource type="TileSet" uid="uid://deyd6ir0l35un" path="res://resources/tilesets/main.tres" id="2_k6uv4"]
 [ext_resource type="PackedScene" uid="uid://p0staigomgw" path="res://resources/upgrades/scene/upgrade.tscn" id="3_taui7"]
 [ext_resource type="Resource" uid="uid://y6p3v0m420qi" path="res://resources/upgrades/speed/resources/speed_upgrade_20.tres" id="4_xg237"]
 [ext_resource type="Resource" uid="uid://yfwtdrp7umht" path="res://resources/upgrades/speed/resources/speed_upgrade_10.tres" id="5_at4up"]
 [ext_resource type="Resource" uid="uid://ch7cyipikol20" path="res://resources/upgrades/health/resources/health_upgrade_1.tres" id="7_vtxjg"]
+[ext_resource type="PackedScene" uid="uid://da6yo06wmwsen" path="res://screens/upgrade_picker/upgrade_picker_screen.tscn" id="8_dy3fb"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("upgrade_manager")]
+script = ExtResource("1_if5dn")
+upgrade_picker_scene = ExtResource("8_dy3fb")
+upgrade_manager = NodePath("Managers/UpgradeManager")
 
 [node name="Managers" type="Node" parent="."]
 

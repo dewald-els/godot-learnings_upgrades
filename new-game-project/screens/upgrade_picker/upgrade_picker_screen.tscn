@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://da6yo06wmwsen"]
+
+[ext_resource type="Script" path="res://screens/upgrade_picker/upgrade_picker_screen.gd" id="1_jidhb"]
+[ext_resource type="Resource" uid="uid://ch7cyipikol20" path="res://resources/upgrades/health/resources/health_upgrade_1.tres" id="2_i117y"]
+[ext_resource type="Resource" uid="uid://yfwtdrp7umht" path="res://resources/upgrades/speed/resources/speed_upgrade_10.tres" id="3_u701y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37kyy"]
+bg_color = Color(0, 0.694149, 0.630375, 1)
+
+[node name="UpgradePickerScreen" type="CanvasLayer"]
+script = ExtResource("1_jidhb")
+health_upgrade = ExtResource("2_i117y")
+speed_upgrade = ExtResource("3_u701y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_37kyy")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ButtonSpeed" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Speed
+"
+
+[node name="ButtonHealth" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Health"
