@@ -2,6 +2,7 @@ class_name HealthUpgradeResource
 extends UpgradeResource
 
 @export var health_amount: int
+@export var max_health: int
 
 
 func apply(owner: Node2D) -> void:

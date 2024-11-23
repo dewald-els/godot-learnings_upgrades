@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_0itnb")
 health_amount = 1
+max_health = 3
 type = "health"
 texture = ExtResource("2_yhb2q")
 name = "Small health potion"

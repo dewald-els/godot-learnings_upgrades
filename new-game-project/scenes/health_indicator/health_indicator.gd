@@ -8,14 +8,13 @@ extends Node2D
 
 func _ready() -> void:
 	if health_component:	
-		health_label.text = str(health_component.health)
+		health_label.text = str(health_component.health) + "/" + str(health_component.max_health)
 		health_component.health_lost.connect(_on_health_lost)
 		health_component.health_increased.connect(_on_healt_increased)
 	
 func _on_health_lost(health: int) -> void:
-	health_label.text = str(health)
+	health_label.text = str(health) + "/" + str(health_component.max_health)
 	
 func _on_healt_increased(health: int) -> void:
-	health_label.text = str(health)
+	health_label.text = str(health) + "/" + str(health_component.max_health)
 	
-		
