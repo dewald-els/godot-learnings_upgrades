@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="HealthUpgradeResource" load_steps=2 format=3 uid="uid://c7ml070c65tyc"]
+
+[ext_resource type="Script" path="res://resources/upgrades/health/health_upgrade_resource.gd" id="1_ef0eh"]
+
+[resource]
+script = ExtResource("1_ef0eh")
+health_amount = 2

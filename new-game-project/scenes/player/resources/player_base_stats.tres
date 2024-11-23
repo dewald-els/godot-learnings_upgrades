@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="StatsResource" load_steps=2 format=3 uid="uid://4t87i0px8lc7"]
+
+[ext_resource type="Script" path="res://resources/stats/stats.gd" id="1_2qxsd"]
+
+[resource]
+script = ExtResource("1_2qxsd")
+base_speed = 5.0
+base_health = 3

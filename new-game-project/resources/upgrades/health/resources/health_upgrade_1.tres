@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HealthUpgradeResource" load_steps=3 format=3 uid="uid://ch7cyipikol20"]
+
+[ext_resource type="Script" path="res://resources/upgrades/health/health_upgrade_resource.gd" id="1_0itnb"]
+[ext_resource type="Texture2D" uid="uid://dwdxvjdbnc6w" path="res://resources/upgrades/scene/sprites/health/health_1.png" id="2_yhb2q"]
+
+[resource]
+script = ExtResource("1_0itnb")
+health_amount = 1
+type = "health"
+texture = ExtResource("2_yhb2q")
+name = "Small health potion"
+description = "Restores 1 health"

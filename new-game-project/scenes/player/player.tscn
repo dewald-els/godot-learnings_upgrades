@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4dk1whw767h6"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_xwwh4"]
+[ext_resource type="PackedScene" uid="uid://dmwxsw6cy1nn8" path="res://scenes/components/velocity/velocity_component.tscn" id="2_4lqlt"]
+[ext_resource type="Texture2D" uid="uid://ccjrw3dncc82q" path="res://assets/tilemap_packed.png" id="2_fl1am"]
+[ext_resource type="Resource" uid="uid://4t87i0px8lc7" path="res://scenes/player/resources/player_base_stats.tres" id="2_lc0er"]
+[ext_resource type="PackedScene" uid="uid://b5mwx3oqafmb6" path="res://scenes/components/control/control_component.tscn" id="3_adm0s"]
+[ext_resource type="PackedScene" uid="uid://cl433rxdhpd5f" path="res://scenes/components/health/health_component.tscn" id="5_n4k5t"]
+[ext_resource type="PackedScene" uid="uid://c50sy4sdtof5t" path="res://scenes/health_indicator/health_indicator.tscn" id="6_i7ggw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgns5"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r2gd"]
+atlas = ExtResource("2_fl1am")
+region = Rect2(16, 160, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1432"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r2gd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+motion_mode = 1
+script = ExtResource("1_xwwh4")
+base_stats = ExtResource("2_lc0er")
+
+[node name="Components" type="Node" parent="."]
+
+[node name="VelocityComponent" parent="Components" instance=ExtResource("2_4lqlt")]
+unique_name_in_owner = true
+
+[node name="ControlComponent" parent="Components" instance=ExtResource("3_adm0s")]
+unique_name_in_owner = true
+
+[node name="HealthComponent" parent="Components" instance=ExtResource("5_n4k5t")]
+unique_name_in_owner = true
+health = 3
+max_health = 3
+
+[node name="HealthIndicator" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_i7ggw")]
+position = Vector2(0, -6)
+health_component = NodePath("../Components/HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qgns5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n1432")
+autoplay = "default"

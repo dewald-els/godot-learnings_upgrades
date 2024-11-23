@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpeedUpgradeResource" load_steps=3 format=3 uid="uid://y6p3v0m420qi"]
+
+[ext_resource type="Script" path="res://resources/upgrades/speed/speed_upgrade_resource.gd" id="1_i4lid"]
+[ext_resource type="Texture2D" uid="uid://g5m0cdymthp" path="res://resources/upgrades/scene/sprites/speed_upgrade_20.png" id="2_mx2o1"]
+
+[resource]
+script = ExtResource("1_i4lid")
+speed_amount = 0.2
+type = "speed"
+texture = ExtResource("2_mx2o1")
+name = "Athletic legs"
+description = "Increase your speed by 20%"
