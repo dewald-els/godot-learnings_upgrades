@@ -1,7 +1,7 @@
 class_name UpgradePickerScreen
 extends CanvasLayer
 
-@onready var button_v_box_container: VBoxContainer = %ButtonVBoxContainer
+@onready var button_v_box_container: GridContainer = %ButtonVBoxContainer
 
 @export var upgrade_button: PackedScene
 @export var upgrade_manager: UpgradeManager

@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://y6p3v0m420qi" path="res://resources/upgrades/speed/resources/speed_upgrade_20.tres" id="8_0rp54"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37kyy"]
-bg_color = Color(0, 0.694149, 0.630375, 1)
+bg_color = Color(0, 0.211765, 0.188235, 0.768627)
 
 [node name="UpgradePickerScreen" type="CanvasLayer"]
 script = ExtResource("1_jidhb")
@@ -28,8 +28,6 @@ grow_vertical = 2
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_37kyy")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
@@ -39,6 +37,17 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="ButtonVBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="UpgradeLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1.68458e-07, 0.212417, 0.189652, 1)
+theme_override_constants/outline_size = 4
+text = "Choose an upgrade"
+
+[node name="ButtonVBoxContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
+columns = 3

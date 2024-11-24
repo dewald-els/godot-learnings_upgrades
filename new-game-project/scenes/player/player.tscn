@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4dk1whw767h6"]
+[gd_scene load_steps=13 format=3 uid="uid://c4dk1whw767h6"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_xwwh4"]
 [ext_resource type="PackedScene" uid="uid://dmwxsw6cy1nn8" path="res://scenes/components/velocity/velocity_component.tscn" id="2_4lqlt"]
@@ -6,7 +6,9 @@
 [ext_resource type="Resource" uid="uid://4t87i0px8lc7" path="res://scenes/player/resources/player_base_stats.tres" id="2_lc0er"]
 [ext_resource type="PackedScene" uid="uid://b5mwx3oqafmb6" path="res://scenes/components/control/control_component.tscn" id="3_adm0s"]
 [ext_resource type="PackedScene" uid="uid://cl433rxdhpd5f" path="res://scenes/components/health/health_component.tscn" id="5_n4k5t"]
+[ext_resource type="PackedScene" uid="uid://dmm35jjj8w5vq" path="res://scenes/player/weapons/ranged/controller/range_weapon_controller.tscn" id="6_8qpcf"]
 [ext_resource type="PackedScene" uid="uid://c50sy4sdtof5t" path="res://scenes/health_indicator/health_indicator.tscn" id="6_i7ggw"]
+[ext_resource type="PackedScene" uid="uid://kdu8bukyupdv" path="res://scenes/player/abilities/dash/dash_ability_controller.tscn" id="7_d3ow4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qgns5"]
 radius = 7.0
@@ -44,6 +46,15 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 health = 3
 max_health = 3
+
+[node name="WeaponControllers" type="Node" parent="."]
+
+[node name="RangeWeaponController" parent="WeaponControllers" instance=ExtResource("6_8qpcf")]
+
+[node name="AbilityControllers" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="DashAbilityController" parent="AbilityControllers" instance=ExtResource("7_d3ow4")]
 
 [node name="HealthIndicator" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_i7ggw")]
 position = Vector2(0, -6)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://kdu8bukyupdv"]
+
+[ext_resource type="Script" path="res://scenes/player/abilities/dash/dash_ability_controller.gd" id="1_kxc5n"]
+
+[node name="DashAbilityController" type="Node"]
+script = ExtResource("1_kxc5n")
+
+[node name="DashTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.15
+one_shot = true

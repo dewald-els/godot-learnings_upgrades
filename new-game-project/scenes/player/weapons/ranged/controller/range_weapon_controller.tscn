@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmm35jjj8w5vq"]
+
+[ext_resource type="Script" path="res://scenes/player/weapons/ranged/controller/range_weapon_controller.gd" id="1_u4jal"]
+
+[node name="RangeWeaponController" type="Node"]
+script = ExtResource("1_u4jal")
