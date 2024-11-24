@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwiru1qqhvtyo"]
+
+[ext_resource type="Script" path="res://scenes/player/abilities/scene/ability_scene.gd" id="1_s6l51"]
+[ext_resource type="Texture2D" uid="uid://om6w821gioha" path="res://scenes/player/abilities/dash/dash.png" id="2_wv6t7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7uhf"]
+bg_color = Color(0, 0.694149, 0.630375, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1.68458e-07, 0.212417, 0.189652, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20hfk"]
+radius = 12.0
+
+[node name="AbilityScene" type="Node2D"]
+script = ExtResource("1_s6l51")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_c7uhf")
+
+[node name="AbilitySprite2D" type="Sprite2D" parent="PanelContainer"]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wv6t7")
+offset = Vector2(16, 16)
+
+[node name="PickupArea2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea2D"]
+shape = SubResource("CircleShape2D_20hfk")

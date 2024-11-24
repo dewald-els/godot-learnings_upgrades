@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 @export var base_stats: StatsResource
 @export var upgrade_manager: UpgradeManager
+@export var ability_manager: AbilityManager
 
 var abilities: Array[AbilityController] = []
 
@@ -20,6 +21,9 @@ func _ready() -> void:
 		
 	if upgrade_manager:
 		upgrade_manager.upgrade_collected.connect(_on_upgrade_added)
+		
+	if ability_manager:
+		ability_manager.ability_added.connect(_on_ability_added)
 		
 	if ability_controllers and ability_controllers.get_child_count() > 0:
 		for possible_ability in ability_controllers.get_children():
@@ -39,6 +43,12 @@ func _physics_process(delta: float) -> void:
 	velocity_component.accelerate(direction)
 	velocity_component.move(self)
 
+func _on_ability_added(ability: AbilityResource) -> void:
+	var controller: AbilityController = ability.controller.instantiate()
+	ability_controllers.add_child(controller)
+	controller.setup()
+	controller.set_owner(self)
+	abilities.append(controller)
 
 func _on_upgrade_added(upgrade: UpgradeResource) -> void:
 	upgrade.apply(self)

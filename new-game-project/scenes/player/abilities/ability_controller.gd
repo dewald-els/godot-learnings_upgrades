@@ -1,7 +1,7 @@
 class_name AbilityController
 extends Node
 
-func finished() -> void:
+func setup() -> void:
 	pass
 
 func physics_process(delta: float) -> void:

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=4 format=3 uid="uid://cimvllfc3am6o"]
+
+[ext_resource type="Script" path="res://scenes/player/abilities/ability_resource.gd" id="1_7ctlm"]
+[ext_resource type="PackedScene" uid="uid://kdu8bukyupdv" path="res://scenes/player/abilities/dash/dash_ability_controller.tscn" id="1_vyi2x"]
+[ext_resource type="Texture2D" uid="uid://om6w821gioha" path="res://scenes/player/abilities/dash/dash.png" id="2_1or4i"]
+
+[resource]
+script = ExtResource("1_7ctlm")
+id = "dash_ability"
+texture = ExtResource("2_1or4i")
+name = "Ghostly dash"
+description = "Quickly dash in a direction"
+controller = ExtResource("1_vyi2x")
+max_allowed = 1

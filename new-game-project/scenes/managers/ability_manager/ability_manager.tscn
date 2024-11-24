@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyssyjg0cxsud"]
+
+[ext_resource type="Script" path="res://scenes/managers/ability_manager/ability_manager.gd" id="1_udslr"]
+
+[node name="AbilityManager" type="Node"]
+script = ExtResource("1_udslr")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://da6yo06wmwsen"]
+[gd_scene load_steps=13 format=3 uid="uid://da6yo06wmwsen"]
 
 [ext_resource type="Script" path="res://screens/upgrade_picker/upgrade_picker_screen.gd" id="1_jidhb"]
 [ext_resource type="PackedScene" uid="uid://0fdbdmam6r1f" path="res://screens/upgrade_picker/buttons/upgrade_picker_button.tscn" id="2_0vasa"]
@@ -9,6 +9,8 @@
 [ext_resource type="Resource" uid="uid://ldwxe3akwa0l" path="res://resources/upgrades/max_health/resources/max_health_1.tres" id="6_oa0gm"]
 [ext_resource type="Resource" uid="uid://bblli5dg7j05p" path="res://resources/upgrades/max_health/resources/max_health_1_and_1.tres" id="7_vlc8e"]
 [ext_resource type="Resource" uid="uid://y6p3v0m420qi" path="res://resources/upgrades/speed/resources/speed_upgrade_20.tres" id="8_0rp54"]
+[ext_resource type="Script" path="res://scenes/player/abilities/ability_resource.gd" id="10_kdfep"]
+[ext_resource type="Resource" uid="uid://cimvllfc3am6o" path="res://scenes/player/abilities/dash/dash_ability_resource.tres" id="11_p548w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37kyy"]
 bg_color = Color(0, 0.211765, 0.188235, 0.768627)
@@ -17,6 +19,7 @@ bg_color = Color(0, 0.211765, 0.188235, 0.768627)
 script = ExtResource("1_jidhb")
 upgrade_button = ExtResource("2_0vasa")
 upgrades = Array[ExtResource("4_xoob8")]([ExtResource("2_i117y"), ExtResource("5_t7i0u"), ExtResource("6_oa0gm"), ExtResource("7_vlc8e"), ExtResource("3_u701y"), ExtResource("8_0rp54")])
+abilities = Array[ExtResource("10_kdfep")]([ExtResource("11_p548w")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -37,16 +40,34 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="UpgradeLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="UpgradeLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(1.68458e-07, 0.212417, 0.189652, 1)
 theme_override_constants/outline_size = 4
 text = "Choose an upgrade"
 
-[node name="ButtonVBoxContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="UpgradeButtonVBoxContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer3/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="AbilityLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1.68458e-07, 0.212417, 0.189652, 1)
+theme_override_constants/outline_size = 4
+text = "Choose an ability"
+
+[node name="AbilityButtonVBoxContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer3/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
