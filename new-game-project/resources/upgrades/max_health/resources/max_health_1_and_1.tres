@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MaxHealthUpgradeResource" load_steps=3 format=3 uid="uid://bblli5dg7j05p"]
+
+[ext_resource type="Script" path="res://resources/upgrades/max_health/max_health_upgrade_resource.gd" id="1_abkvv"]
+[ext_resource type="Texture2D" uid="uid://rnu4h4s56rqj" path="res://resources/upgrades/scene/sprites/max_health/max_health.png" id="2_hxnce"]
+
+[resource]
+script = ExtResource("1_abkvv")
+amount_to_add_max_health = 1
+amount_to_add_health = 1
+type = "max_health"
+texture = ExtResource("2_hxnce")
+name = "Max health mixture"
+description = "Gain 1 addition max health and 1 health"

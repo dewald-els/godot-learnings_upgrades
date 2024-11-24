@@ -1,23 +1,19 @@
 class_name UpgradePickerScreen
 extends CanvasLayer
 
-@onready var button_speed: Button = %ButtonSpeed
-@onready var button_health: Button = %ButtonHealth
+@onready var button_v_box_container: VBoxContainer = %ButtonVBoxContainer
 
+@export var upgrade_button: PackedScene
 @export var upgrade_manager: UpgradeManager
-@export var health_upgrade: HealthUpgradeResource
-@export var speed_upgrade: SpeedUpgradeResource
+@export var upgrades: Array[UpgradeResource] = []
 
 
 func _ready() -> void:
-	button_speed.pressed.connect(_on_speed_pressed)
-	button_health.pressed.connect(_on_health_pressed)
-
-
-func _on_speed_pressed() -> void:
-	upgrade_manager.add_upgrade(speed_upgrade)
-	Callable(queue_free).call_deferred()
+	for upgrade in upgrades:
+		var button: UpgradePickerButton = upgrade_button.instantiate()
+		button.upgrade = upgrade
+		button_v_box_container.add_child(button)
 	
-func _on_health_pressed() -> void:
-	upgrade_manager.add_upgrade(health_upgrade)
+func _on_upgrade_selected(upgrade: UpgradeResource):
+	upgrade_manager.add_upgrade(upgrade)
 	Callable(queue_free).call_deferred()

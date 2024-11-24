@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://0fdbdmam6r1f"]
+
+[ext_resource type="Script" path="res://screens/upgrade_picker/buttons/upgrade_picker_button.gd" id="1_pa3ni"]
+[ext_resource type="Texture2D" uid="uid://dwdxvjdbnc6w" path="res://resources/upgrades/scene/sprites/health/health_1.png" id="2_jn7b6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwx2u"]
+bg_color = Color(0, 0.694149, 0.630375, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1.68458e-07, 0.212417, 0.189652, 1)
+
+[node name="UpgradePickerButton" type="PanelContainer"]
+offset_right = 75.0
+offset_bottom = 24.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hwx2u")
+script = ExtResource("1_pa3ni")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="UpgradeTextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("2_jn7b6")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Upgrade name"
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Descrption of the upgrade"
