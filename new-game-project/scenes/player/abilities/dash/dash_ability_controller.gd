@@ -4,6 +4,7 @@ extends AbilityController
 
 @onready var dash_timer: Timer = %DashTimer
 
+var dash_speed: float = 400.0
 var base_acceleration: float = 0.0
 var base_max_speed: float = 0.0
 	
@@ -20,7 +21,7 @@ func physics_process(delta: float) -> void:
 		var velocity_component: VelocityComponent = owner.velocity_component
 		base_acceleration = velocity_component.acceleration
 		base_max_speed = velocity_component.max_speed
-		velocity_component.set_fixed_acceleration(400)
+		velocity_component.set_fixed_acceleration(dash_speed)
 		dash_timer.start()
 			
 func _on_dash_timer_timeout() -> void:
