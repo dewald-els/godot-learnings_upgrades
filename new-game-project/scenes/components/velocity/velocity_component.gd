@@ -25,15 +25,17 @@ func accelerate(direction: Vector2) -> void:
 	var target_velocity: Vector2 = direction * max_speed
 	velocity = velocity.lerp(target_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 
-
 func stop() -> void:
-	accelerate(Vector2.ZERO)
-	
+	accelerate(Vector2.ZERO)	
 
 func move(character_body: CharacterBody2D) -> void:
 	character_body.velocity = velocity
 	character_body.move_and_slide()
 	velocity = character_body.velocity
+
+func set_fixed_acceleration(fixed_acceleration: float) -> void:
+	acceleration = fixed_acceleration
+	max_speed = fixed_acceleration
 
 func increase_acceleration(percentage_amount: float) -> void:
 	print("Increasing velocity by ", str(percentage_amount))

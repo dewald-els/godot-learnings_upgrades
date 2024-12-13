@@ -16,19 +16,17 @@ func physics_process(delta: float) -> void:
 		print("timer not stopped.")
 		return 
 		
-	if Input.is_action_just_pressed("player_dash") and owner.velocity_component:
-		print("Starting dash")
-		base_acceleration = owner.velocity_component.acceleration
-		base_max_speed = owner.velocity_component.max_speed
-		print("Found base accleration: ", str(base_acceleration))
-		owner.velocity_component.increase_acceleration(2)
+	if Input.is_action_just_pressed("player_dash") and owner.velocity_component and dash_timer.is_stopped():
+		var velocity_component: VelocityComponent = owner.velocity_component
+		base_acceleration = velocity_component.acceleration
+		base_max_speed = velocity_component.max_speed
+		velocity_component.set_fixed_acceleration(400)
 		dash_timer.start()
 			
 func _on_dash_timer_timeout() -> void:
 	if not owner.velocity_component:
 		print("missing velocity component on timeout")
 		return
-	print("reset velocity acceleration")
 	owner.velocity_component.stop()
 	owner.velocity_component.acceleration = base_acceleration
 	owner.velocity_component.max_speed = base_max_speed
